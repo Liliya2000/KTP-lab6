@@ -67,7 +67,7 @@ def create_user(request):
             art = User.objects.create(username=form["username"],
                                          email=form["mail"],
                                          password=form["password"])
-            return redirect('archive')
+            return redirect('home')
         else:
             if art is not None:
                 form['errors'] = u"Логин или почта уже заняты"
@@ -76,3 +76,30 @@ def create_user(request):
             return render(request, 'create_user.html', {'form': form})
     else:
         return render(request, 'create_user.html', {})
+
+
+def authorization(request):
+ if request.method == "POST":
+   form = {
+            'username': request.POST["username"],
+            'password': request.POST["password"]
+        }
+   if form["username"] and form["password"]:
+     user = authenticate(username=form["username"], password=form["password"])
+     if user is  None:
+        form['errors'] = u"Иди нахер"
+
+        return render(request, 'authorization.html', {'form': form})
+     else:
+        login(request, user)
+     return redirect('home')
+        
+
+   else:
+       form['errors'] = u"Не все поля заполнены"
+   return render(request, 'authorization.html', {'form': form})   
+        
+ else:
+    return render(request, 'authorization.html', {})
+   # return render(request, 'authorization.html', {'form': form})
+   #return render(request, 'authorization.html', {})   

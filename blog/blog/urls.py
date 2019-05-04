@@ -20,4 +20,5 @@ urlpatterns = patterns('',
      #url(r'^$', 'articles.views.home', name='home'),
      url(r'^admin/', include(admin.site.urls)),
      url(r'^registration', 'articles.views.create_user', name='create_user'),
+     url(r'^authenticate', 'articles.views.authorization', name='authorization'), 
 )

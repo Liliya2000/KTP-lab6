@@ -1,39 +1,35 @@
 body {
     background: #1abc9c;
 	font-family: Tahoma, Arial, sans-serif;
-	color: #ffffff; 
+	color: #ffffff;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;	
 }
 
 div {
     display: block;
 }
-
-.archive {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.article {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .header a{
 	color: #ffffff;
     float: right;
     text-align: right;
 }
+
 .header img{
     width: 318px;
-
 }
-.headera img {
+.headera img{
 	display: block;
     width: 318px;
     margin-left: auto;
     margin-right: auto;
+}
+.headera a{
+	display: block;
+	color: #ffffff;
+    float: right;
+    text-align: right;
 }
 
 .article-info div {
